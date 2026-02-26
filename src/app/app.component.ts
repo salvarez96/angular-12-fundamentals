@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'my-store';
+  name: string = '';
+  age: number = 0;
+
+  increaseAge() {
+    this.age++;
+  }
 }

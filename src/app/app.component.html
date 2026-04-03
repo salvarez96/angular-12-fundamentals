@@ -7,8 +7,13 @@
   minlength="5"
   required
 >
-<span style="color: red;" *ngIf="nameInput?.value?.length && !nameInput.valid">El nombre debe tener al menos 5 caracteres.</span>
-<p>Edad: {{ age }}</p>
+<span
+  class="error-message"
+  [class.invalid]="nameInput?.value?.length && !nameInput.valid"
+>
+  El nombre debe tener al menos 5 caracteres.
+</span>
+<p>Edad: <span [style.color]="age < 18 ? 'red' : 'green'">{{ age }}</span></p>
 <button (click)="increaseAge()">Aumentar edad</button>
 
 <h2>Lista de nombres</h2>
@@ -24,9 +29,9 @@
 
 <hr />
 
-<div>
+<div class="products-grid">
   <div *ngFor="let product of products">
-    <img [src]="product.image" [alt]="product.name" width="200">
+    <img [src]="product.image" [alt]="product.name" width="300">
     <h2>{{ product.name }}</h2>
     <p>{{ product.price | currency }}</p>
   </div>

@@ -1,0 +1,17 @@
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
+}
+
+.error-message {
+  color: red;
+  font-weight: bold;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+
+  &.invalid {
+    opacity: 1;
+  }
+}

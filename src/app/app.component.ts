@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Product } from './product.model';
+import { Person } from './person.model';
 
 @Component({
   selector: 'app-root',
@@ -11,6 +12,10 @@ export class AppComponent {
   age: number = 0;
   names: string[] = ['Alice', 'Bob', 'Charlie'];
   newName: string = '';
+  person: Person = {
+    name: 'John Doe',
+    age: 30
+  };
 
   products: Product[] = [
     {

@@ -31,3 +31,14 @@
     <p>{{ product.price | currency }}</p>
   </div>
 </div>
+
+<hr />
+
+<div>
+  <input type="text" [(ngModel)]="person.name" placeholder="Ingrese un nombre">
+  <div [ngSwitch]="person.name">
+    <p *ngSwitchCase="'alice'">Hola Alice</p>
+    <p *ngSwitchCase="'bob'">Hola Bob</p>
+    <p *ngSwitchDefault>Hola desconocido</p>
+  </div>
+</div>

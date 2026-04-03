@@ -21,3 +21,13 @@
   </li>
 </ul>
 <span *ngIf="names.length === 0">No hay nombres</span>
+
+<hr />
+
+<div>
+  <div *ngFor="let product of products">
+    <img [src]="product.image" [alt]="product.name" width="200">
+    <h2>{{ product.name }}</h2>
+    <p>{{ product.price | currency }}</p>
+  </div>
+</div>

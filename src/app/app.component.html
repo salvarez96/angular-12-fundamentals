@@ -7,6 +7,17 @@
   minlength="5"
   required
 >
-<span style="color: red;" *ngIf="!nameInput.valid">El nombre debe tener al menos 5 caracteres.</span>
+<span style="color: red;" *ngIf="nameInput?.value?.length && !nameInput.valid">El nombre debe tener al menos 5 caracteres.</span>
 <p>Edad: {{ age }}</p>
 <button (click)="increaseAge()">Aumentar edad</button>
+
+<h2>Lista de nombres</h2>
+<input type="text" [(ngModel)]="newName" name="newName" id="newName" placeholder="Nuevo nombre">
+<button type="button" (click)="newName.length > 0 && addNewName()">Agregar nombre</button>
+<ul>
+  <li *ngFor="let name of names; index as i">
+    {{ i + 1 }}. {{ name }}
+    <button type="button" (click)="deleteName(i)">Eliminar</button>
+  </li>
+</ul>
+<span *ngIf="names.length === 0">No hay nombres</span>

@@ -15,3 +15,20 @@
     opacity: 1;
   }
 }
+
+.line-error {
+  // height: 1px;
+  border-bottom: 1px solid;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+
+  &.valid {
+    border-color: green;
+    opacity: 1;
+  }
+
+  &.invalid {
+    border-color: red;
+    opacity: 1;
+  }
+}

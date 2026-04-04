@@ -16,6 +16,11 @@ export class AppComponent {
     name: 'John Doe',
     age: 30
   };
+  box = {
+    width: 100,
+    height: 100,
+    background: 'red'
+  }
 
   products: Product[] = [
     {

@@ -1,4 +1,4 @@
-<h1>NgModel</h1>
+<h2>NgModel</h2>
 <p>Nombre: {{ name }}</p>
 <input
   type="text"
@@ -13,10 +13,34 @@
 >
   El nombre debe tener al menos 5 caracteres.
 </span>
+<hr
+  class="line-error"
+  [ngClass]="{
+    'valid': nameInput.valid,
+    'invalid': nameInput.invalid && nameInput?.value?.length
+  }"
+/>
+<div class="styles">
+  <div>
+    <input type="number" [(ngModel)]="box.width" name="width" id="width">
+    <input type="number" [(ngModel)]="box.height" name="height" id="height">
+    <input type="color" [(ngModel)]="box.background" name="background" id="background">
+  </div>
+  <div
+    class="box"
+    [ngStyle]="{
+      'width.px': box.width,
+      'height.px': box.height,
+      'background': box.background
+    }"
+  ></div>
+</div>
+
 <p>Edad: <span [style.color]="age < 18 ? 'red' : 'green'">{{ age }}</span></p>
 <button (click)="increaseAge()">Aumentar edad</button>
+<hr />
 
-<h2>Lista de nombres</h2>
+<h2>NgFor</h2>
 <input type="text" [(ngModel)]="newName" name="newName" id="newName" placeholder="Nuevo nombre">
 <button type="button" (click)="newName.length > 0 && addNewName()">Agregar nombre</button>
 <ul>
@@ -39,6 +63,7 @@
 
 <hr />
 
+<h2>NgSwitch</h2>
 <div>
   <input type="text" [(ngModel)]="person.name" placeholder="Ingrese un nombre">
   <div [ngSwitch]="person.name">

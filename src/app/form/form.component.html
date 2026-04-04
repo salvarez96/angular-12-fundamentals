@@ -1,0 +1,51 @@
+<form #myForm="ngForm" (ngSubmit)="onSubmit($event.target)">
+   <h3>Formulario de registro</h3>
+   <span class="success-message" [class.valid]="myForm.valid && isFormSubmitted">Formulario enviado con éxito!</span>
+   <p>Rellena el formulario para registrarte</p>
+  <div class="input-group">
+    <label for="name">Nombre:</label>
+    <input
+      type="text"
+      id="name"
+      name="name"
+      #nameInput="ngModel"
+      [(ngModel)]="name"
+      required
+    >
+    <span class="error-message" [class.invalid]="nameInput.invalid && nameInput.touched">
+      {{ nameInput.errors?.required && 'El nombre es requerido.' }}
+    </span>
+  </div>
+  <div class="input-group">
+    <label for="email">Email:</label>
+    <input
+      type="email"
+      id="email"
+      name="email"
+      #emailInput="ngModel"
+      [(ngModel)]="email"
+      required
+    >
+    <span class="error-message" [class.invalid]="emailInput.invalid && emailInput.touched">
+      {{ emailInput.errors?.required && 'El email es requerido.' }}
+    </span>
+  </div>
+  <div class="input-group">
+    <label for="password">Password:</label>
+    <input
+      type="password"
+      id="password"
+      name="password"
+      #passwordInput="ngModel"
+      [(ngModel)]="password"
+      minlength="5"
+      required
+    >
+    <span class="error-message" [class.invalid]="passwordInput.invalid && passwordInput.touched">
+      {{ passwordInput.errors?.required && 'La contraseña es requerida.' }}
+      {{ passwordInput.errors?.minlength && 'La contraseña debe tener al menos 5 caracteres.' }}
+    </span>
+  </div>
+
+  <button type="submit" [disabled]="!myForm.valid || isFormSubmitted">Enviar</button>
+</form>
